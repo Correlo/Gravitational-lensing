@@ -1,6 +1,6 @@
 #Author: Martín Manuel Gómez Míguez
 #GitHub: @Correlo
-#Date: 08/02/2020
+#Date: 03/04/2020
 
 from configparser import ConfigParser
 
@@ -12,19 +12,18 @@ params = ConfigParser()
 params.sections()
 params.read('params.ini')
 
-#Labels
-MESH = params['MESH']
-SOURCE = params['SOURCE']
-LENS_l = list(dict(params).keys())[3:]
+#List of fields
+fields = list(dict(params).keys())
+#List of lenses
+lenses = [elem for elem in fields if elem[0] == 'L']
 
 #Main parte of the code
-for i in range(len(LENS_l)):
-    LENS = params[LENS_l[i]]
-    figname = 'Lens' + str(i) + '.png'
-    print('Obtaining ', figname)
-    Core(MESH, SOURCE, LENS, figname)
+for lens in lenses:
+    print()
+    print('Obtaining ', lens)
+    Core(params, lens)
 
 print()
-print('All the lens was created successfully!')
+print('All the lenses were created successfully!')
 
 

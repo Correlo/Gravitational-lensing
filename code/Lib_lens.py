@@ -1,6 +1,6 @@
 #Author: Martín Manuel Gómez Míguez
 #GitHub: @Correlo
-#Date: 08/02/2020
+#Date: 03/04/2020
 
 import numpy as np
 
@@ -96,7 +96,7 @@ def ChangRefsdal(X1, X2, LENS):
     param_l = list(dict(LENS).keys())[1:]
     rx = [float(LENS[x]) for x in param_l if 'x' in x]
     ry = [float(LENS[y]) for y in param_l if 'y' in y]
-    rl = [(x, y) for x,y in zip(rx,ry)]
+    rl = [(x, y) for x,y in zip(rx, ry)]
     ml = [float(LENS[m]) for m in param_l if 'ml' in m]
     k  = float(LENS['k'])
     g  = float(LENS['g'])
@@ -130,8 +130,8 @@ def SIS(X1, X2, LENS):
     Alpha1 -> x coordinate of deflection (Einstein radius)
     Alpha2 -> y coordinate of deflection (Einstein radius)
     '''
-    rx = float(LENS['rl1x'])
-    ry = float(LENS['rl1y'])
+    rx = float(LENS['rlx'])
+    ry = float(LENS['rly'])
     rl = (rx, ry)
     ThE = float(LENS['ThE'])
 
